@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miffy Jewelry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <style>
+        .btn-wa {
+            display: block;
+            margin: 20px auto;
+            /* biar ke tengah */
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* BACKGROUND */
+        #page-checkout {
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* CARD */
+        .checkout-card {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* JUDUL */
+        .checkout-card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* FORM */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        /* RINGKASAN */
+        .ringkasan {
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .ringkasan h3 {
+            color: #5d4037;
+        }
+
+        /* TOMBOL WA */
+        .btn-wa {
+            width: 100%;
+            margin-top: 20px;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* TOMBOL KEMBALI */
+        .btn-back {
+            width: 100%;
+            margin-top: 10px;
+            background: #ddd;
+            border: none;
+            padding: 12px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        /* CONTAINER */
+        .checkout-container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* JUDUL */
+        .checkout-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* INPUT */
+        .checkout-container input,
+        .checkout-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        /* LABEL */
+        .checkout-container label {
+            font-weight: bold;
+        }
+
+        /* RINGKASAN */
+        .ringkasan {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .ringkasan p {
+            margin: 5px 0;
+        }
+
+        .ringkasan h3 {
+            margin-top: 10px;
+            color: #27ae60;
+        }
+
+        /* TOMBOL WA */
+        .btn-wa {
+            width: 100%;
+            margin-top: 20px;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-wa:hover {
+            transform: scale(1.05);
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f5f5f5
+        }
+
+        header {
+            background: #5d4037;
+            color: white;
+            text-align: center;
+            padding: 15px
+        }
+
+        .logo {
+            font-family: 'Playfair Display';
+            font-size: 40px
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            /* 🔥 ukuran tetap */
+            object-fit: cover;
+            /* biar tidak gepeng */
+            border-radius: 10px;
+        }
+
+        .card img {
+            width: 100% !important;
+            height: px !important;
+            object-fit: cover;
+        }
+
+        .card img:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            background: #8d6e63;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background: #5d4037
+        }
+
+        .cart {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="logo">Miffy Jewelry</h1>
+    </header>
+
+    <!-- INFO TOKO -->
+    <div
+        style="background:#fff;margin:15px;padding:15px;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1);text-align:center">
+        <h3>Informasi Toko</h3>
+
+        <p>📍 Jl. Banda Aceh - Medan, Gampong Tijue, Kec. Pidie, Kab. Pidie, Aceh <br>📞 0822-4998-2278</p>
+
+        <p>🕒 <b>Jam Buka:</b><br>
+            Senin - Sabtu : 09.00 - 18.00<br>
+            Minggu : 10.00 - 18.00</p>
+
+        <p>📱 <b>Sosial Media:</b><br>
+            <a href="#">Instagram</a> |
+            <a href="#">TikTok</a>
+        </p>
+
+        <!-- HALAMAN PRODUK -->
+        <div id="page-produk" class="page active">
+            <div style="text-align:center;padding:15px">
+                <input type="text" id="search" placeholder="Cari produk..." onkeyup="searchProduct()">
+            </div>
+
+            <div class="container" id="product-list"></div>
+
+            <div class="cart">
+                🛒 <span id="cart-count">0</span> | Rp <span id="total-price">0</span><br><br>
+                <button onclick="goCheckout()">Checkout</button>
+            </div>
+        </div>
+
+        <!-- HALAMAN PRODUK -->
+        <!-- isi produk kamu disini -->
+
+    </div>
+
+
+    <!-- HALAMAN CHECKOUT -->
+    <div id="page-checkout" class="page">
+
+        <div class="checkout-card">
+            <h2>🧾 Checkout</h2>
+
+            <!-- FORM -->
+            <div class="form-group">
+                <label>Nama</label>
+                <input type="text" id="nama" placeholder="Masukkan nama">
+            </div>
+
+            <div class="form-group">
+                <label>Provinsi</label>
+                <select id="provinsi" onchange="loadKabupaten()">
+                    <option value="">-- Pilih Provinsi --</option>
+                    <option value="aceh">Aceh</option>
+                </select>
+
+                <label>Kabupaten / Kota</label>
+                <select id="kabupaten" onchange="hitungOngkir()">
+                    <option value="">-- Pilih Kabupaten / Kota --</option>
+
+                    <option value="pidie">Pidie</option>
+                </select>
+
+                <select id="kecamatan" onchange="hitungOngkir()">
+                    <option value="">Pilih Kecamatan</option>
+                    <option value="sigli">Sigli</option>
+                    <option value="muara_tiga">Muara Tiga</option>
+                    <option value="kembang_tanjong">Kembang Tanjong</option>
+                    <option value="glumpang_tiga">Glumpang Tiga</option>
+                    <option value="sakti">Sakti</option>
+                    <option value="tangse">Tangse</option>
+                    <option value="geumpang">Geumpang</option>
+                    <option value="mane">Mane</option>
+                    <option value="indrajaya">Indrajaya</option>
+                    <option value="peukan_baroe">Peukan Baro</option>
+                    <option value="padang_tiji">Padang Tiji</option>
+                    <option value="delima">Delima</option>
+                    <option value="mila">Mila</option>
+                    <option value="keumala">Keumala</option>
+                    <option value="titeue">Titeue</option>
+                </select>
+
+                <div class="form-group">
+                    <label>Pembayaran</label>
+                    <select id="pembayaran">
+                        <option>COD</option>
+                        <option>Dana</option>
+                        <option>OVO</option>
+                        <option>Transfer Bank</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Kurir</label>
+                    <select id="kurir" onchange="hitungOngkir()">
+                        <option value="">-- Pilih Kurir --</option>
+                        <option value="jne">JNE</option>
+                        <option value="jnt">J&T</option>
+                        <option value="sicepat">SiCepat</option>
+                    </select>
+                </div>
+
+                <!-- RINGKASAN -->
+                <div class="ringkasan">
+                    <ul id="checkout-list"></ul>
+                    <p>Subtotal: Rp <span id="subtotal">0</span></p>
+                    <p>Ongkir: Rp <span id="ongkir">0</span></p>
+                    <h3>Total Bayar: Rp <span id="total-bayar">0</span></h3>
+                </div>
+
+                <!-- TOMBOL -->
+                <button class="btn-wa" onclick="kirimWA()">
+                    💬 Pesan via WhatsApp
+                </button>
+
+                <button class="btn-back" onclick="kembali()">
+                    ⬅ Kembali ke Toko
+                </button>
+
+            </div>
+
+        </div>
+
+        <script>
+            const products = [
+                { name: "Jepitan Rambut", price: 30000, img: "jepitan rambut1.jpg" },
+                { name: "Anting", price: 25000, img: "anting.jpg" },
+                { name: "Bando", price: 30000, img: "bando.jpg" },
+                { name: "Cincin", price: 30000, img: "cincin.jpg" },
+                { name: "Gelang", price: 35000, img: "gelang.jpg" },
+                { name: "Jam Tangan", price: 50000, img: "jam tangan.jpg" },
+                { name: "Kacamata", price: 40000, img: "kacamata.jpg" },
+                { name: "Nail Art", price: 70000, img: "nail art.jpg" },
+                { name: "Gantungan Tas", price: 20000, img: "keychan.jpg" },
+                { name: "Topi", price: 60000, img: "topi.jpg" },
+                { name: "Jedai Rambut", price: 55000, img: "jedai.jpg" },
+                { name: "Ikat Rambut", price: 60000, img: "ikat rambut.jpg" },
+            ];
+
+
+
+            let cart = [];
+            let total = 0;
+
+            const productList = document.getElementById("product-list");
+
+            function displayProducts(list) {
+                productList.innerHTML = "";
+                list.forEach((p, i) => {
+                    const card = document.createElement("div");
+                    card.className = "card";
+                    card.innerHTML = `
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<p>Rp ${p.price.toLocaleString("id-ID")}</p>
+<button onclick="addToCart(${i})">Tambah</button>`;
+                    productList.appendChild(card);
+                });
+            }
+
+            displayProducts(products);
+
+            function searchProduct() {
+                const keyword = document.getElementById("search").value.toLowerCase();
+
+                const hasil = products.filter(p =>
+                    p.name.toLowerCase().includes(keyword)
+                );
+
+                displayProducts(hasil);
+            }
+            function addToCart(i) {
+                cart.push(products[i]);
+                total += products[i].price;
+                document.getElementById("cart-count").innerText = cart.length;
+                document.getElementById("total-price").innerText = total.toLocaleString("id-ID");
+            }
+
+            function goCheckout() {
+                document.getElementById("page-produk").classList.remove("active");
+                document.getElementById("page-checkout").classList.add("active");
+
+                const list = document.getElementById("checkout-list");
+                list.innerHTML = "";
+
+                let subtotal = 0;
+
+                cart.forEach(item => {
+                    const li = document.createElement("li");
+                    li.innerText = `${item.name} - Rp ${item.price.toLocaleString("id-ID")}`;
+                    list.appendChild(li);
+
+                    subtotal += item.price;
+                });
+
+                document.getElementById("subtotal").innerText =
+                    subtotal.toLocaleString("id-ID");
+
+                document.getElementById("ongkir").innerText = "0";
+
+                document.getElementById("total-bayar").innerText =
+                    subtotal.toLocaleString("id-ID");
+
+                // simpan khusus subtotal
+                window.subtotal = subtotal;
+            }
+
+            let ongkir = 0;
+
+            function hitungOngkir() {
+                const kecamatan = document.getElementById("kecamatan").value;
+                const kurir = document.getElementById("kurir").value;
+
+                ongkir = 0; // ✅ pakai global
+
+                if (!kecamatan || !kurir) {
+                    ongkir = 0;
+                } else {
+
+                    // 🔥 BASE ONGKIR KHUSUS PIDIE (BERDASARKAN KECAMATAN)
+                    let base = 0;
+
+                    switch (kecamatan) {
+                        case "sigli": base = 8000; break;
+                        case "muara_tiga": base = 9000; break;
+                        case "kembang_tanjong": base = 10000; break;
+                        case "glumpang_tiga": base = 11000; break;
+                        case "sakti": base = 12000; break;
+                        case "tangse": base = 13000; break;
+                        case "geumpang": base = 14000; break;
+                        case "mane": base = 12000; break;
+                        case "indrajaya": base = 9000; break;
+                        case "peukan_baroe": base = 10000; break;
+                        case "padang_tiji": base = 11000; break;
+                        case "delima": base = 9500; break;
+                        case "mila": base = 9000; break;
+                        case "keumala": base = 10500; break;
+                        case "titeue": base = 11500; break;
+                        default: base = 10000;
+                    }
+
+                    // 🔥 TAMBAHAN KURIR
+                    if (kurir === "jne") ongkir = base + 2000;
+                    else if (kurir === "jnt") ongkir = base + 3000;
+                    else if (kurir === "sicepat") ongkir = base + 1000;
+                }
+
+                document.getElementById("ongkir").innerText =
+                    ongkir.toLocaleString("id-ID");
+
+                updateTotal();
+            }
+            function updateTotal() {
+                let subtotal = 0;
+
+                cart.forEach(item => {
+                    subtotal += item.price;
+                });
+
+                document.getElementById("subtotal").innerText =
+                    subtotal.toLocaleString("id-ID");
+
+                let totalBayar = subtotal + ongkir; // ✅ pakai global
+
+                document.getElementById("total-bayar").innerText =
+                    totalBayar.toLocaleString("id-ID");
+
+                total = totalBayar;
+            }
+            function updateTotalBayar() {
+                const totalBayar = window.subtotal + ongkir;
+
+                document.getElementById("total-bayar").innerText =
+                    totalBayar.toLocaleString("id-ID");
+            }
+
+            function kembali() {
+                document.getElementById("page-checkout").classList.remove("active");
+                document.getElementById("page-produk").classList.add("active");
+            }
+
+            function kirimWA() {
+                const nama = document.getElementById("nama").value;
+                const kecamatan = document.getElementById("kecamatan").value;
+                const bayar = document.getElementById("pembayaran").value;
+                const kurir = document.getElementById("kurir").value;
+
+                if (!nama || !kecamatan || !kurir) {
+                    alert("Lengkapi data dulu!");
+                    return;
+                }
+
+                let pesan = `Pesanan:\n`;
+                pesan += `Nama: ${nama}\n`;
+                pesan += `Kecamatan: ${kecamatan}\n`;
+                pesan += `Pembayaran: ${bayar}\n`;
+                pesan += `Kurir: ${kurir}\n\n`;
+
+                cart.forEach(i => {
+                    pesan += `${i.name} - Rp ${i.price.toLocaleString("id-ID")}\n`;
+                });
+
+                pesan += `\nSubtotal: Rp ${window.subtotal.toLocaleString("id-ID")}`;
+                pesan += `\nOngkir: Rp ${ongkir.toLocaleString("id-ID")}`;
+                pesan += `\nTotal Bayar: Rp ${(window.subtotal + ongkir).toLocaleString("id-ID")}`;
+
+                const no = "6282249982278";
+                window.open(`https://wa.me/${no}?text=${encodeURIComponent(pesan)}`);
+            }
+        </script>
+
+</body>
+
+</html>
